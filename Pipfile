@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==2.2"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+djoser = "*"
+djangorestframework-jwt = "*"
+django-rest-auth = "*"
+django-crispy-forms = "*"
+django-registration = "*"
+sklearn = "*"
+numpy = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.7"

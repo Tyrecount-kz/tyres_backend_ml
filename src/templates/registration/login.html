@@ -1,0 +1,14 @@
+{% extends "auth_layout.html" %}
+{% load crispy_forms_tags %}
+{% block auth %}
+<h1>Login</h1>
+<h5>Welcome to Tyres.kz!</h5>
+<div class="login-form__container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="submit__button" type="submit">Login</button>
+    </form>
+    <p class><a href="{% url 'django_registration_register' %}"></a></p>
+</div>
+{% endblock %}
