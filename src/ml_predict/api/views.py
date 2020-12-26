@@ -11,6 +11,7 @@ from sklearn import preprocessing
 from django.conf import settings
 from sklearn.preprocessing import StandardScaler
 import os
+from shop.models import Car
 
 BASE_DIR = settings.BASE_DIR
 
@@ -72,8 +73,10 @@ def make_prediction(request):
             model = pickle.load(open(os.path.join(workpath,'betaV1.pkl'),'rb'))
             #'Year','Volume','Mileage','Model','CustomsCleared','Transmission','Company'
             p = model.predict([new_data['Year'],new_data['Volume'],new_data['Mileage'],new_data['Model'],new_data['CustomsCleared'],new_data['Transmission'],new_data['Company']])
+            
             answer = round(np.e**p[0])
             print(round(np.e**p[0]))
+            
             return Response(answer)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         
